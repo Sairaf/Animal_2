@@ -14,6 +14,7 @@
   */
 package Dono;
 
+import animal.ComparableTo;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -108,9 +109,7 @@ public class Dono implements Pessoa{
         System.out.println("\nAndar, correr, etc.");  
     }
     
-    @Override
-    public void Comparable()
-    
+        
     @Override
     public void Adicionar_Profissao(String profissao){
       this.setProfissao(profissao);
@@ -149,3 +148,4 @@ public class Dono implements Pessoa{
         return hash;
     }*/
 }
+

@@ -24,7 +24,7 @@ import Dono.Movimento;
  *
  * @author ABGerson
  */
-public abstract class Animal implements Movimento{
+public class Animal implements Movimento, ComparableTo<Animal>{
     //Falta trabalhar com a classe Iddade
   // delcarado atributos  
   protected String  nomeCientifico;
@@ -190,6 +190,11 @@ public abstract class Animal implements Movimento{
             
     }
 
+  
+  @Override  
+  public void Mover(){
+      System.out.println("DEsconhecido");;
+  }
   public static String Verificar_Perigo_Extincao(int populacao){
    if(populacao < 2500)   {
     return "Especie em estado crítico de extinção";    
@@ -222,7 +227,16 @@ public abstract class Animal implements Movimento{
    
    }
    
-   
+   @Override
+   public int CompareTo(Animal animal){
+       if(this.idade < animal.idade){
+       return -1;
+       }
+       if(this.idade > animal.idade){
+       return 1;
+       }
+       return 0;
+   }
   
   public int Velhice(int expectativa_Vida){
     int aux = idade/expectativa_Vida;  
