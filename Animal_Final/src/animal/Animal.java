@@ -1,3 +1,5 @@
+
+
 /*
  SuperClasse responsável por definir todo Animal deste programa. Extende para duas classes: "Animal_Domesticado" e 
  "Animal_Selvagem". Decidi usar estas subclasses pois poderia criar facilmente subclasses a partir delas (Animal_Domesticado 
@@ -18,15 +20,15 @@ package animal;
 
 import Comida.Comida;
 import Comida.Racao;
+import animal.ComparableTo;
 import java.util.Scanner;
 import Dono.Movimento;
 /**
  *
  * @author ABGerson
  */
-public class Animal implements Movimento, ComparableTo<Animal>{
-    //Falta trabalhar com a classe Iddade
-  // delcarado atributos  
+public abstract class Animal implements Movimento, ComparableTo<Animal>{
+  
   protected String  nomeCientifico;
   protected String  classe;
   protected String  codigoAnimal;
