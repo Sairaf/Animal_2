@@ -18,7 +18,7 @@ import animal.Animal;
 
 
 
-public class Animal_Domesticado extends Animal{
+public class Animal_Domesticado extends Animal {
   //  private static final int MAX = 10;
     
     protected String apelido;
