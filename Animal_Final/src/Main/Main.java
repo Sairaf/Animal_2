@@ -217,84 +217,73 @@ public class Main {
                  comida.setMesesProducao(meses);
                  
                  animais[opcao].Comer(comida);
-                 
-                 JOptionPane.showMessageDialog("\n");
-                     
+
                  }else{
-                     System.out.println("ao existem animais a ser adicionados");
+                     JOptionPane.showMessageDialog(null, "Nao existem animais a ser adicionados");
                  }
-                  ShowMenu();
+                 ShowMenu();
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
                  
              case 6:    
                  if(cont > 0){
                   opcao = cont+2;
-                  while(opcao > cont-1){
-                   System.out.println("Qual animal voce deseja alimentar? ");         
-                   opcao = Integer.parseInt(sc.nextLine());
+                  while(opcao > cont-1){                   
+                   opcao = Integer.parseInt(JOptionPane.showInputDialog("Qual animal voce deseja alimentar? "));
                   }
-                  System.out.println("Digite a Expectativa de vida deste animal: ");
-                  expectativa_Vida = Integer.parseInt(sc.nextLine());
+                  expectativa_Vida = Integer.parseInt(JOptionPane.showInputDialog(("Digite a Expectativa de vida deste animal: ")));                  
                   animais[opcao].Velhice(expectativa_Vida);
                      
                  }else{
-                      System.out.println("Nao existem animais a ser adicionados");
+                      JOptionPane.showMessageDialog(null,"Nao existem animais a ser adicionados");
                  }
                      
-                 
-                 System.out.println("\n\n");
+                                 
                  ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 7:
                  if(cont > 0){
                   opcao = cont+2;
                   while(opcao > cont-1){
-                   System.out.println("Qual animal voce deseja Verificar o risco de extinção? ");         
-                   opcao = Integer.parseInt(sc.nextLine());
+                   opcao = Integer.parseInt(JOptionPane.showInputDialog(("Qual animal voce deseja Verificar o risco de extinção? ")));                   
                   }
-                  System.out.println("Digite a populacao deste animal");
-                  populacao = Integer.parseInt(sc.nextLine());                                            
+                  populacao = Integer.parseInt(JOptionPane.showInputDialog("Digite a populacao deste animal"));
                   String aux;
                   aux = animais[opcao].Verificar_Perigo_Extincao(populacao);
                   animais[opcao].setPerigoExtincao(aux);
-                 System.out.println("\n" +aux);
+                  JOptionPane.showMessageDialog(null, "\n" +aux); 
                  }else{
-                    System.out.println("Nao existem animais a ser adicionados");  
+                    JOptionPane.showMessageDialog(null,"Nao existem animais a ser adicionados");  
                  }
                  
-                 
-                 System.out.println("\n\n");
+                                  
                  ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 8:
                  if(cont > 0){
                  for(opcao = 0; opcao <cont; opcao++){
                      if(animais[opcao] instanceof Animal_Domesticado){
-                         System.out.println("\nE um animal domestico"); 
+                         JOptionPane.showMessageDialog(null, "\nAnimal domestico\n" + animais[opcao] ); 
              
                      }else if(animais[opcao] instanceof Animal_Selvagem){
-                         System.out.println("\nE um animal Selvagem");    
-                     }
-                    System.out.println(animais[opcao]);  
+                            JOptionPane.showMessageDialog(null, "\nAnimal selvagem\n" + animais[opcao] ); 
+                     }                    
                   }    
                  }else{
-                     System.out.println("Nenhum animal foi registrado");  
+                     JOptionPane.showMessageDialog(null, "Nenhum animal foi registrado");  
                  }
                                  
-                 System.out.println("\n\n");
                  ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 0:
                  System.exit(0);
              default:
-                 System.out.println("Opcao invalida");
-                 System.out.println("\n\n");
+                 JOptionPane.showMessageDialog(null,"Opcao invalida");                 
                  ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
          }            
         }while(opcao != 0);
