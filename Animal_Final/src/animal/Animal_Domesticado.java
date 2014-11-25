@@ -89,5 +89,9 @@ public class Animal_Domesticado extends Animal {
       return s;
     }
 
-
+    @Override
+    public boolean equals(Object o){       
+        ).
+    return false;
+   }
 }

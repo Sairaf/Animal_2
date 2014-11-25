@@ -263,7 +263,9 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
   
   public void Verificar_Se_Esta_Doente(Animal animal, int expectativa_Vida){
       int aux; 
- 
+      
+      Random random = new Random();
+      
       aux = animal.Velhice(expectativa_Vida);
       if(aux == 0 && animal.getContDoenca() >= 5){
         System.out.println("Este animal  esta doente");  ;
@@ -306,4 +308,15 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
    }
       
   
+  
+  @Override 
+  public boolean equals(Object o){
+          int i = 0;
+      if(o instanceof Animal && ((Animal)o).getNomeCientifico() == this.getNomeCientifico() && ((Animal) o).getCodigoAnimal() == this.getCodigoAnimal() && ((Animal)o).getClasse() == this.getClasse() && ((Animal)o).idade == this.getIdade() && ((Animal)o).nomePopular == this.nomePopular && ((Animal)o).getContDoenca() == this.getContDoenca() && ((Animal)o).getPeso() == this.getPeso() )
+                return true;
+            else
+           return false;
+
+
+ }
 }
