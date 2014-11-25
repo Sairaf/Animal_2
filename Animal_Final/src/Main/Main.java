@@ -108,89 +108,64 @@ public class Main {
                   auxD = (Animal_Domesticado) animais[cont];
                   
                   }
-                  System.out.println("Animal Domestico adicionado com sucesso!!!");               
+                  JOptionPane.showMessageDialog("Animal Domestico adicionado com sucesso!!!");               
                   animais[cont] = auxD;
                   cont++;      
               
                            
                  }else{
-                     System.out.println("Limite de animais alcancado");                      
+                     JOptionPane.showMessageDialog("Limite de animais alcancado");                      
                  }
       
                  ShowMenu();
                  
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
-                  /*   
-                  System.out.println("Digite o nome cientifico do animal:");
-                  nome_Cientifico = sc.nextLine();
-                  System.out.println("Digite a classe do animal:");
-                  classe = sc.nextLine();
-                  System.out.println("\nDigite o codigo do animal (Codigo deve conter 12 Digitos):");
-                  codigo_Animal = sc.nextLine();
-                  System.out.println("\nDigite o nome popular do animal:");
-                  nome_Popular = sc.nextLine();
-                  System.out.println("\nDigite o peso do animal:");
-                  peso = Float.parseFloat(sc.nextLine());
-                  System.out.println("\nDigite a idade do animal:");
-                  idade= Integer.parseInt(sc.nextLine());
-                  System.out.println("\nDigite o apelido do animal:");
-                  apelido= sc.nextLine();
-                   */                                  
+                         
              case 2:
                  if(cont < MAXANIMAIS){
-                  System.out.println("\nDigite o nome cientifico do animal:");
-                  nome_Cientifico = sc.nextLine();
-                  System.out.println("\nDigite a classe do animal:");
-                  classe = sc.nextLine();
-                  System.out.println("\nDigite o codigo do animal(Codigo deve conter 12 Digitos):");
-                  codigo_Animal = sc.nextLine();
-                  System.out.println("\nDigite o nome popular do animal:");
-                  nome_Popular = sc.nextLine();
-                  System.out.println("\nDigite o peso do animal (Em kilos):");
-                  peso = Float.parseFloat(sc.nextLine());
-                  System.out.println("\nDigite a idade do animal (Em anos):");
-                  idade= Integer.parseInt(sc.nextLine());
+				  JOptionPane.showInputDialog
+                  nome_Cientifico = JOptionPane.showInputDialog("Digite o nome cientifico do animal");
+                  classe = JOptionPane.showInputDialog("Digite a classe do animal");
+                  codigo_Animal = JOptionPane.showInputDialog("Digite o codigo do animal (Codigo deve conter exatamente 12 digitos)");
+                  nome_Popular = JOptionPane.showInputDialog("Digite o nome popular do animal");
+                  peso = Float.parseFloat(JOptionPane.showInputDialog("Digite o peso do animal"));
+                  idade = Integer.parseInt(JOptionPane.showInputDialog("Digite a idade do animal"));
                   if(lider == false){
-                   System.out.println("\nEste animal e o lider do grupo: (0-y/1-n): ");
-                   opcao = Integer.parseInt(sc.nextLine());
+                   opcao = Integer.parseInt(JOptionPane.showInputDialog("\nEste animal e o lider do grupo: (0-y/1-n): "));
                    if(opcao == 0){
                    lider = true;                        
                    }else{
                     lider = false;   
                    }
                   }
-                  
                   doente = false;                        
                   animais[cont] = new Animal_Selvagem(lider, nome_Cientifico, classe, codigo_Animal, idade, perigo_Extincao, peso, nome_Popular, cont_Doenca, doente);
                   auxS = (Animal_Selvagem) animais[cont];
-                  System.out.println("Animal Domestico adicionado com sucesso!!!");                                    
+                  JOptionPane.showMessageDialog("Animal Domestico adicionado com sucesso!!!");                                    
                   animais[cont] = auxS;
                   cont++;
                   
                  }else{
-                     System.out.println("Limite de animais alcancado");                      
+                     SJOptionPane.showMessageDialog("Limite de animais alcancado");                      
                  }
                  ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                 
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
                  
              case 3:
                  if(cont > 0){
                  opcao = cont+2;
                  while(opcao > cont-1){
-                  System.out.println("Qual animal voce deseja adicionar dono? ");         
-                  opcao = Integer.parseInt(sc.nextLine());;
+                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Qual animal voce deseja adicionar dono? ");                           
                  }
                  
                   if(animais[opcao] instanceof Animal_Domesticado){
                    
-                  System.out.println("\nDigite o nome do dono: ");
-                  nome_Dono = sc.nextLine();
-                  System.out.println("\nEste dono possui quantos Animais?: ");
-                  num_Animais = Integer.parseInt(sc.nextLine());
-                  System.out.println("\nDe 0 a 10, Digite a qualidade do Tratamento do dono com os seus animas: ");
-                  qualidade_Dono = Integer.parseInt(sc.nextLine());
+                  nome_Dono = JOptionPane.showInputDialog("\nDigite o nome do dono: ");
+                  num_Animais = JOptionPane.showInputDialog("\nEste dono possui quantos Animais?: ");
+                  qualidade_Dono =  Integer.parseInt(JOptionPane.showInputDialog("\nDe 0 a 10, Digite a qualidade do Tratamento do dono com os seus animas: "));
                   dono.setNomeDono(nome_Dono);;
                   dono.setNumeroAnimais(num_Animais);
                   dono.Verificar_Qualidade_Tratamento(qualidade_Dono);
@@ -200,34 +175,33 @@ public class Main {
                   
                   
                  }else{
-                    System.out.println("Animais selvagens nao tem dono...Eu acho");   
+                    JOptionPane.ShowMessageDialog("Animais selvagens nao tem dono...Eu acho");   
                  }
                }else{
-                     System.out.println("Nao existe animal suficientes para realizar esta operacao\n");   
+                    JOptionPane.ShowMessageDialog("Nao existe animal suficientes para realizar esta operacao\n");   
                   }
                  
                  
                  ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
+				 
              case 4:
                  opcao = cont+2;
                  if(cont > 0){
-                  while(opcao > cont-1){
-                   System.out.println("Qual animal voce deseja Verificar se esta doente? ");         
-                   opcao = Integer.parseInt(sc.nextLine());
+                  while(opcao > cont-1){     
+                   opcao = Integer.parseInt(JOptionPane.showInputDialog("Qual animal voce deseja Verificar se esta doente?"));
                   }
                      int expec;
-                     System.out.println("Digite a expectativa de vida do animal");
-                     expec = Integer.parseInt(sc.nextLine());
+                     expec = Integer.parseInt(JOptionPane.showInputDialog("Digite a expectativa de vida do animal"));
                      animais[opcao].Verificar_Se_Esta_Doente(animais[opcao], expec);
                      
                  }else{
-                     System.out.println("Nao existe animais registrado para realizar esta operacao");   
+                     JOptionPane.ShowMessageDialog("Nao existe animais registrado para realizar esta operacao");   
                   }                
-                 System.out.println("\n");
-                 ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                // System.out.println("\n");
+                ShowMenu();
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 5:
                  if(cont > 0){
