@@ -1,8 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+  A classe "Bola_Brinquedo" corresponde a todas as bolas de Brinqendo (Aquelas bolinhas pequenas e fofas, feitas de borracha, normalmente usada para ficar jogando na parede)
+  Toda bola de brinquedo tem uma  marca, é feita de um material X, e se encontra em um Y estado de econservação. A bola pode ter de uma a 3 cores
+
+  A classe sobrescreve os métodos "toString", "Hashcode" e "equals"
  */
+
 package Brinquedo;
 
 import Dono.Movimento;

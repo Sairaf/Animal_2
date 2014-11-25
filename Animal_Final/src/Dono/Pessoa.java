@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+  A interface Pessoa, além de implementar a interface "Movimento" (Uma pessoa se movimenta", ela é implementada por
+  Dono (Todo dono é uma pessoa). Só possui o método "Adicionar_Profissão".
  */
 package Dono;
 import Dono.Movimento;

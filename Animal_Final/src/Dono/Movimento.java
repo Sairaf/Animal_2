@@ -1,9 +1,8 @@
 package Dono;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+  A maior parte das classes deste projeto se movimentam, então não seria nada justo implementar uma interface correspodente a esta ação.
+  Diversas classes sobrescrevem o método mover (Ex: Pessoa), indicando como eles se movimentam.
  */
 
 

@@ -1,7 +1,7 @@
 
 
 /*
- SuperClasse responsável por definir todo Animal deste programa. Extende para duas classes: "Animal_Domesticado" e 
+ SuperClasse abstrata responsável por definir todo Animal deste programa. Extende para duas classes: "Animal_Domesticado" e 
  "Animal_Selvagem". Decidi usar estas subclasses pois poderia criar facilmente subclasses a partir delas (Animal_Domesticado 
  derivaria em cão, gato, coelho, etc.).
 
@@ -14,7 +14,7 @@
  retorna uma mensagem que varia dependendo da (idade atual/expectativa vida), além de um método que indica se ele está doente.
 
  Existem outros métodos, como o "toString(Animal)", responsável por realizar uma função parecida com o operador "<<" do c++, e o "Habitat()"
- indicando qual lugar será mais provável encontrar estes animais, e este será sobreescrito por suas subclasses.
+ indicando qual lugar será mais provável encontrar estes animais, e este será sobreescrito por suas subclasse, além de sobrescrever os métodos "hashcode()" e "equals()"
  */
 package animal;
 

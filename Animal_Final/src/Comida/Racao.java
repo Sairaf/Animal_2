@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+A classe "Racao" contém as informações mínimas para uma ração. Não possui muitos atributos
+"nomeComida" recebe o nome do limento, que é de certa forma desnecessário, diferente das "calorias", que 
+definirão quanto o animal vai engordar. MesesProdução indica quanto tempo esta ração/comida foi produzida ou encontra-se podre,
+sendo este atributo útil para verificar a "qualidade" da comida, que impacta na saúde do animal
+
+Além dos velhos conhecidos getters e setters, além de sobrescrição dos métodos "toString", "equals" e "Hashcode".
  */
 package Comida;
 

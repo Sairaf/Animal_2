@@ -6,7 +6,7 @@
    Todo animal deve ter um dono, certo? Teoricamente, não (E na pratica também não, mas vamos que vamos). Esta classe
    vai ser importante na classe Dono, para indicar que todo animal tem um dono (Um mundo melhor seria este imagino).
     
-   O que o dono possui? Primeiramente, um nome e o numero de animais que este possui, a qualidade do tratamento será definida
+   O que o dono possui? Primeiramente, um nome, uma ou mais profissões e o numero de animais que este possui, a qualidade do tratamento será definida
    através de um método, aonde entra uma nota entre 0 e 10 e sai um conceito (Parecido com o sistema e notas de uma Universidade)
     
    

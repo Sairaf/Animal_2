@@ -7,6 +7,20 @@
  * Ela possui dois métodos: "ShowMenu()" que mostra as opções que veresão ser tomadas, e o "cls()", que "emula" a função
  * system("cls") do c++.
  * 
+ * Opções disponíveis pelo switch-case:
+ * 
+ * Adicionar Animal Domesticado.            - Adicional um animal ao vetor de animais. Caso o nome popular deste animal seja "cachorro", um objeto da classe cachorro será adicionado
+ * Adicionar Animal Selvagem.               - Cria um animal da classe Animal_Selvagem e o adiciona ao vetor
+ * Adicionar Dono.                          - Caso o animal seja domesticável, um dono pode ser adicionado a ele
+ * Verificar se animal esta doente.         - Diz se o animal escolhido está doente ou não
+ * Alimentar Animal.                        - Alimenta o animal, podendo aumentar o peso deste
+ * Verificar quão velho o animal está.      - Indica em qual faixa etária o animal está
+ * Verificar o risco de extinção do animal  - Retorna quão ameaçada o animal está
+ * Listar                                   - Escreve todos os animais do vetor
+ * Adicionar_Brinquedo                      - Adicionar um brinquedo, que o animal pode brincar ou não
+ * Brincar com o animal                     - Se o animal for um cachorro, ele brinca com o brinquedo
+ * Sair.                                    - Sai do prograga
+ * 
  * No mais, a classe possui diversos atributos que auxiliarão na criação dos objetos, e a maior parte do programa é feito nas outras classes
  * 
  */

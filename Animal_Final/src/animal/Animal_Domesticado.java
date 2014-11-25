@@ -9,7 +9,7 @@
 
   Entao, o que a torna especial? Nao muito infelizmente. Alem de possuir um static final para ter o controle do que esta criando, cada animal possui um apelido
  (cachorro = Totó), e o objeto dono e auxDono indica quais são as informçaoes do Dono. A classe tem um método para verificar qual a qualidade do
-criador, sem contar que ele sobreescreve as funções "Habitat" e "toString"
+  criador, sem contar que ele sobreescreve as funções "Habitat", "equals" e "toString"
  */
 package animal;
 
