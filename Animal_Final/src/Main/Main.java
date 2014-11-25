@@ -320,6 +320,7 @@ public class Main {
                  }
                  break;
              case 0:
+
                  System.exit(0);
              default:
                  JOptionPane.showMessageDialog(null,"Opcao invalida");                 
