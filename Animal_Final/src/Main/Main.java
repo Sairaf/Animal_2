@@ -30,12 +30,13 @@ public class Main {
     public static final int MAXANIMAIS = 20;  
     
     public static final void Welcome(){
-        System.out.println("Bem vindo ao sistema de Registro de animais");
+        
     }
     
-    public static void ShowMenu()
+    public static final void ShowMenu()
       {
-          System.out.println("1 - Adicionar Animal Domesticado. ");   
+          JOptionPane.showMessageDialog(null, "Bem vindo ao sistema de Registro de animais\n1 - Adicionar Animal Domesticado.\n2 - Adicionar Animal Selvagem.\n3 - Adicionar Dono.\n4 - Verificar se animal esta doente.\n5 - Alimentar Animal.\n6 - Verificar quão velho o animal está.\n 7 - Verificar o Risco de extinção do animal\n8 - Listar\n9 - Brincar com o animal\n0 - Sair.\nEscolha uma opcao  ");          
+         /* System.out.println("1 - Adicionar Animal Domesticado. ");   
           System.out.println("2 - Adicionar Animal Selvagem. ");   
           System.out.println("3 - Adicionar Dono. ");   
           System.out.println("4 - Verificar se animal esta doente. ");   
@@ -45,7 +46,7 @@ public class Main {
           System.out.println("8 - Listar");
           System.out.println("0 - Sair.");   
           System.out.println("\n");
-          System.out.println("Escolha uma opção:\n");
+          System.out.println("Escolha uma opção:\n");*/
       }
 
    public static void cls(){       
@@ -67,7 +68,7 @@ public class Main {
         //====================================================================
         int cont = 0;
         
-        String nome_Cientifico, classe, codigo_Animal, perigo_Extincao = "Desconhecido", nome_Popular, nome_Dono, qualidade_Tratamento = "Desc", apelido, nomeComida, raca;
+        String nome_Cientifico, classe, codigo_Animal, perigo_Extincao = "Desconhecido", nome_Popular, nome_Dono, qualidade_Tratamento = "Desc", apelido, nomeComida, raca, marca, estado_Conservacao, material_Feito, cor;
         int idade , cont_Doenca = 0, num_Animais, num_Donos, qualidade_Dono, expectativa_Vida,populacao ;
         float peso,calorias;
         boolean lider = false, doente, qualidade_Comida = true;
@@ -108,13 +109,13 @@ public class Main {
                   auxD = (Animal_Domesticado) animais[cont];
                   
                   }
-                  JOptionPane.showMessageDialog("Animal Domestico adicionado com sucesso!!!");               
+                  JOptionPane.showMessageDialog(null, "Animal Domestico adicionado com sucesso!!!");               
                   animais[cont] = auxD;
                   cont++;      
               
                            
                  }else{
-                     JOptionPane.showMessageDialog("Limite de animais alcancado");                      
+                     JOptionPane.showMessageDialog(null, "Limite de animais alcancado");                      
                  }
       
                  ShowMenu();
@@ -124,7 +125,6 @@ public class Main {
                          
              case 2:
                  if(cont < MAXANIMAIS){
-				  JOptionPane.showInputDialog
                   nome_Cientifico = JOptionPane.showInputDialog("Digite o nome cientifico do animal");
                   classe = JOptionPane.showInputDialog("Digite a classe do animal");
                   codigo_Animal = JOptionPane.showInputDialog("Digite o codigo do animal (Codigo deve conter exatamente 12 digitos)");
@@ -142,12 +142,12 @@ public class Main {
                   doente = false;                        
                   animais[cont] = new Animal_Selvagem(lider, nome_Cientifico, classe, codigo_Animal, idade, perigo_Extincao, peso, nome_Popular, cont_Doenca, doente);
                   auxS = (Animal_Selvagem) animais[cont];
-                  JOptionPane.showMessageDialog("Animal Domestico adicionado com sucesso!!!");                                    
+                  JOptionPane.showMessageDialog(null, "Animal Domestico adicionado com sucesso!!!");                                    
                   animais[cont] = auxS;
                   cont++;
                   
                  }else{
-                     SJOptionPane.showMessageDialog("Limite de animais alcancado");                      
+                     JOptionPane.showMessageDialog(null, "Limite de animais alcancado");                      
                  }
                  ShowMenu();
                  
@@ -158,13 +158,13 @@ public class Main {
                  if(cont > 0){
                  opcao = cont+2;
                  while(opcao > cont-1){
-                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Qual animal voce deseja adicionar dono? ");                           
+                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Qual animal voce deseja adicionar dono? "));                           
                  }
                  
                   if(animais[opcao] instanceof Animal_Domesticado){
                    
                   nome_Dono = JOptionPane.showInputDialog("\nDigite o nome do dono: ");
-                  num_Animais = JOptionPane.showInputDialog("\nEste dono possui quantos Animais?: ");
+                  num_Animais = Integer.parseInt(JOptionPane.showInputDialog("\nEste dono possui quantos Animais?: ")); 
                   qualidade_Dono =  Integer.parseInt(JOptionPane.showInputDialog("\nDe 0 a 10, Digite a qualidade do Tratamento do dono com os seus animas: "));
                   dono.setNomeDono(nome_Dono);;
                   dono.setNumeroAnimais(num_Animais);
@@ -175,10 +175,10 @@ public class Main {
                   
                   
                  }else{
-                    JOptionPane.ShowMessageDialog("Animais selvagens nao tem dono...Eu acho");   
+                    JOptionPane.showMessageDialog(null, "Animais selvagens nao tem dono...Eu acho");   
                  }
                }else{
-                    JOptionPane.ShowMessageDialog("Nao existe animal suficientes para realizar esta operacao\n");   
+                    JOptionPane.showMessageDialog(null, "Nao existe animal suficientes para realizar esta operacao\n");   
                   }
                  
                  
@@ -197,40 +197,34 @@ public class Main {
                      animais[opcao].Verificar_Se_Esta_Doente(animais[opcao], expec);
                      
                  }else{
-                     JOptionPane.ShowMessageDialog("Nao existe animais registrado para realizar esta operacao");   
+                     JOptionPane.showMessageDialog(null,"Nao existe animais registrado para realizar esta operacao");   
                   }                
                 // System.out.println("\n");
-                ShowMenu();
+                 ShowMenu();
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 5:
                  if(cont > 0){
                  opcao = cont+2;
                  while(opcao > cont-1){
-                  System.out.println("Qual animal voce deseja alimentar? ");         
-                  opcao = Integer.parseInt(sc.nextLine());
+                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Qual animal voce deseja alimentar? "));
                  } 
-                 System.out.println("\nDigite o nome da Comida: ");
-                 nomeComida = sc.nextLine();
-                 System.out.println("\nDigite quantas calorias a comida possui");
-                 System.out.println("\n 8000 calorias = 1 kilo");
-                 calorias = Float.parseFloat(sc.nextLine());
-                 System.out.println("\nHa Quantos meses ela foi produzida");
-                 meses = Integer.parseInt(sc.nextLine());;
-                 
+                 nomeComida = JOptionPane.showInputDialog("\nDigite o nome da Comida: ");                 
+                 calorias = Float.parseFloat( JOptionPane.showInputDialog("Digite o nome da Comida: \n(Digite quantas calorias a comida possui)"));
+                 meses = Integer.parseInt(JOptionPane.showInputDialog("\nHa Quantos meses ela foi produzida"));                                  
                  comida.setNomeComida(nomeComida);
                  comida.setCalorias(calorias);
                  comida.setMesesProducao(meses);
                  
                  animais[opcao].Comer(comida);
                  
-                 System.out.println("\n");
+                 JOptionPane.showMessageDialog("\n");
                      
                  }else{
                      System.out.println("ao existem animais a ser adicionados");
                  }
-                 ShowMenu();
-                 opcao = Integer.parseInt(sc.nextLine());
+                  ShowMenu();
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
                  
              case 6:    
