@@ -12,6 +12,7 @@
  */
 package Main;
 
+import Brinquedo.Bola_Brinquedo;
 import Comida.Comida;
 import Comida.Racao;
 import animal.Animal;
@@ -35,7 +36,7 @@ public class Main {
     
     public static final void ShowMenu()
       {
-          JOptionPane.showMessageDialog(null, "Bem vindo ao sistema de Registro de animais\n1 - Adicionar Animal Domesticado.\n2 - Adicionar Animal Selvagem.\n3 - Adicionar Dono.\n4 - Verificar se animal esta doente.\n5 - Alimentar Animal.\n6 - Verificar quão velho o animal está.\n 7 - Verificar o Risco de extinção do animal\n8 - Listar\n9 - Brincar com o animal\n0 - Sair.\nEscolha uma opcao  ");          
+          JOptionPane.showMessageDialog(null, "Bem vindo ao sistema de Registro de animais\n1 - Adicionar Animal Domesticado.\n2 - Adicionar Animal Selvagem.\n3 - Adicionar Dono.\n4 - Verificar se animal esta doente.\n5 - Alimentar Animal.\n6 - Verificar quão velho o animal está.\n 7 - Verificar o Risco de extinção do animal\n8 - Listar\n9- Adicionar_Brinquedo \n10 - Brincar com o animal\n0 - Sair.\nEscolha uma opcao  ");          
          /* System.out.println("1 - Adicionar Animal Domesticado. ");   
           System.out.println("2 - Adicionar Animal Selvagem. ");   
           System.out.println("3 - Adicionar Dono. ");   
@@ -61,13 +62,13 @@ public class Main {
         Animal[] animais = new Animal[MAXANIMAIS];
         Animal_Domesticado auxD = new Animal_Domesticado();
         Animal_Selvagem auxS = new Animal_Selvagem();
+        Bola_Brinquedo brinquedo;
         Dono dono = new Dono();
         Racao comida = new Racao();
         //ArrayList <Animal> animais= new ArrayList<> ();
         
         //====================================================================
-        int cont = 0;
-        
+        int cont = 0;        
         String nome_Cientifico, classe, codigo_Animal, perigo_Extincao = "Desconhecido", nome_Popular, nome_Dono, qualidade_Tratamento = "Desc", apelido, nomeComida, raca, marca, estado_Conservacao, material_Feito, cor;
         int idade , cont_Doenca = 0, num_Animais, num_Donos, qualidade_Dono, expectativa_Vida,populacao ;
         float peso,calorias;
@@ -277,6 +278,20 @@ public class Main {
                                  
                  ShowMenu();
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
+                 break;
+             case 9:
+
+                 marca = JOptionPane.showInputDialog("Digite a marca do brinquedo");
+                 estado_Conservacao = JOptionPane.showInputDialog("Digite o estado de conservacao do brinquedo");
+                 material_Feito = JOptionPane.showInputDialog("Digite o material que o brinquedo foi feito");
+                 cor  = JOptionPane.showInputDialog("Digite a cor  do objeto (MAX 3)");
+                 brinquedo = new Bola_Brinquedo(marca, estado_Conservacao, material_Feito, cor);
+             
+                 ShowMenu();
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
+                 break;
+             case 10:
+                 
                  break;
              case 0:
                  System.exit(0);
