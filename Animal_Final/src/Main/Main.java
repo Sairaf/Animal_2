@@ -62,13 +62,13 @@ public class Main {
         Animal[] animais = new Animal[MAXANIMAIS];
         Animal_Domesticado auxD = new Animal_Domesticado();
         Animal_Selvagem auxS = new Animal_Selvagem();
-        Bola_Brinquedo brinquedo;
+        Bola_Brinquedo bola = new Bola_Brinquedo();
         Dono dono = new Dono();
         Racao comida = new Racao();
         //ArrayList <Animal> animais= new ArrayList<> ();
         
         //====================================================================
-        int cont = 0;        
+        int cont = 0, flag = 0;        
         String nome_Cientifico, classe, codigo_Animal, perigo_Extincao = "Desconhecido", nome_Popular, nome_Dono, qualidade_Tratamento = "Desc", apelido, nomeComida, raca, marca, estado_Conservacao, material_Feito, cor;
         int idade , cont_Doenca = 0, num_Animais, num_Donos, qualidade_Dono, expectativa_Vida,populacao ;
         float peso,calorias;
@@ -285,13 +285,25 @@ public class Main {
                  estado_Conservacao = JOptionPane.showInputDialog("Digite o estado de conservacao do brinquedo");
                  material_Feito = JOptionPane.showInputDialog("Digite o material que o brinquedo foi feito");
                  cor  = JOptionPane.showInputDialog("Digite a cor  do objeto (MAX 3)");
-                 brinquedo = new Bola_Brinquedo(marca, estado_Conservacao, material_Feito, cor);
-             
+                 bola= new Bola_Brinquedo(marca, estado_Conservacao, material_Feito, cor);
+                 flag = 1;
                  ShowMenu();
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 10:
-                 
+                 if(cont > 0 || flag == 0){
+                  opcao = cont+2;
+                  while(opcao > cont-1){
+                   opcao = Integer.parseInt(JOptionPane.showInputDialog(("Qual animal voce deseja Verificar o risco de extinção? ")));                   
+                  }
+                  if(animais[opcao] instanceof Cachorro){
+                    ((Cachorro)animais[opcao]).Brincar(bola);
+                  }else{
+                    JOptionPane.showMessageDialog(null,"O animal nao gosta do brinquedo registrado");
+                  }
+                 }else{
+                   JOptionPane.showMessageDialog(null, "Nenhum animal foi registrado ou nao existe brinquedo registracdo");     
+                 }
                  break;
              case 0:
                  System.exit(0);

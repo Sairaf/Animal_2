@@ -38,7 +38,7 @@ public class Cachorro extends Animal_Domesticado{
     
     
     
-    void Brincar(Movimento brinquedo){
+    public void Brincar(Movimento brinquedo){
       if(brinquedo instanceof Bola_Brinquedo)  {
           System.out.println(this.getApelido() + " brinca com a bola.");            
       }else{
