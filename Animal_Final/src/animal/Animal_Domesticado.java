@@ -15,6 +15,7 @@ package animal;
 
 import Dono.Dono;
 import animal.Animal;
+import java.util.Objects;
 
 
 
@@ -91,7 +92,21 @@ public class Animal_Domesticado extends Animal {
 
     @Override
     public boolean equals(Object o){       
-        ).
-    return false;
+        if(super.equals(o) == true){
+            return o instanceof Animal_Domesticado && (((Animal_Domesticado)o).getApelido() == null ? this.getApelido() == null : ((Animal_Domesticado)o).getApelido().equals(this.getApelido())) && ((Animal_Domesticado)o).getDono() == this.getDono();
+        }else{
+         return false;   
+        }    
    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.apelido);
+        hash = 97 * hash + Objects.hashCode(this.dono);
+        hash = 97 * hash + Objects.hashCode(this.auxDono);
+        return hash;
+    }
+    
+    
 }

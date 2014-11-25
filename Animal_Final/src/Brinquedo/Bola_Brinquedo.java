@@ -7,6 +7,7 @@ package Brinquedo;
 
 import Dono.Movimento;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -101,6 +102,20 @@ public class Bola_Brinquedo implements Movimento{
         return s;
     }
 
+    @Override
+    public boolean equals(Object o){
+      return o instanceof Bola_Brinquedo && ((Bola_Brinquedo)o).cor == this.cor && (((Bola_Brinquedo)o).estado_Conservacao == null ? this.estado_Conservacao == null : ((Bola_Brinquedo)o).estado_Conservacao.equals(this.estado_Conservacao)) && (((Bola_Brinquedo)o).material_Feito == null ? this.material_Feito == null : ((Bola_Brinquedo)o).material_Feito.equals(this.material_Feito)) && (this.marca == null ? ((Bola_Brinquedo)o).marca == null : this.marca.equals(((Bola_Brinquedo)o).marca));  
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.marca);
+        hash = 59 * hash + Objects.hashCode(this.estado_Conservacao);
+        hash = 59 * hash + Objects.hashCode(this.material_Feito);
+        hash = 59 * hash + Objects.hashCode(this.cor);
+        return hash;
+    }
 
 
 }

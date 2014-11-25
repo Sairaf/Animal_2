@@ -14,6 +14,7 @@ package animal;
 
 import animal.Animal;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Animal_Selvagem extends Animal{
    
@@ -96,4 +97,23 @@ public class Animal_Selvagem extends Animal{
        return s;
    }
    
+   @Override
+   public boolean equals(Object o){
+       if(super.equals(o) == true){
+           return o instanceof Animal_Selvagem && ((Animal_Selvagem)o).numGrupo == this.numGrupo && Animal_Selvagem.liderGrupo == Animal_Selvagem.liderGrupo && ((Animal_Selvagem)o).grupo == this.grupo;
+       }else{ 
+         return false;  
+       }
+           
+   }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + this.numGrupo;
+        hash = 89 * hash + Arrays.deepHashCode(this.grupo);
+        return hash;
+    }
 }
+   
+

@@ -13,13 +13,16 @@
 package Main;
 
 import Comida.Comida;
+import Comida.Racao;
 import animal.Animal;
 import animal.Animal_Domesticado;
 import animal.Animal_Selvagem;
 import Dono.Dono;
+import animal.Cachorro;
 //import static Main.Main.Menu.ShowMenu;
 //import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
         
 
 public class Main {
@@ -58,13 +61,13 @@ public class Main {
         Animal_Domesticado auxD = new Animal_Domesticado();
         Animal_Selvagem auxS = new Animal_Selvagem();
         Dono dono = new Dono();
-        Racao Comida comida = new Racao();
+        Racao comida = new Racao();
         //ArrayList <Animal> animais= new ArrayList<> ();
         
         //====================================================================
         int cont = 0;
         
-        String nome_Cientifico, classe, codigo_Animal, perigo_Extincao = "Desconhecido", nome_Popular, nome_Dono, qualidade_Tratamento = "Desc", apelido, nomeComida;
+        String nome_Cientifico, classe, codigo_Animal, perigo_Extincao = "Desconhecido", nome_Popular, nome_Dono, qualidade_Tratamento = "Desc", apelido, nomeComida, raca;
         int idade , cont_Doenca = 0, num_Animais, num_Donos, qualidade_Dono, expectativa_Vida,populacao ;
         float peso,calorias;
         boolean lider = false, doente, qualidade_Comida = true;
@@ -76,14 +79,49 @@ public class Main {
         Welcome();
         ShowMenu();
         System.out.println("\n");
+        
+        opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
+        /*
         System.out.println("Digite a opcao desejada: ");
-        opcao = Integer.parseInt(sc.nextLine());
+        opcao = Integer.parseInt(sc.nextLine());*/
         
         
          do{
          switch(opcao){
              case 1:
                  if(cont < MAXANIMAIS){
+                  nome_Cientifico = JOptionPane.showInputDialog("Digite o nome cientifico do animal");
+                  classe = JOptionPane.showInputDialog("Digite a classe do animal");
+                  codigo_Animal = JOptionPane.showInputDialog("Digite o codigo do animal (Codigo deve conter exatamente 12 digitos)");
+                  nome_Popular = JOptionPane.showInputDialog("Digite o nome popular do animal");
+                  peso = Float.parseFloat(JOptionPane.showInputDialog("Digite o peso do animal"));
+                  idade = Integer.parseInt(JOptionPane.showInputDialog("Digite a idade do animal"));
+                  apelido = JOptionPane.showInputDialog("Digite o apelido do animal");
+                  doente = false;     
+                  if(nome_Popular.equalsIgnoreCase("Cachorro")){
+                   raca= JOptionPane.showInputDialog("Digite a raca do cachorro");
+                   animais[cont] = new Cachorro(apelido, nome_Cientifico, classe, codigo_Animal, idade, peso, nome_Popular, cont_Doenca, doente,raca);                      
+                   auxD = (Cachorro) animais[cont];
+                  }else{
+                
+                  animais[cont] = new Animal_Domesticado(apelido, nome_Cientifico, classe, codigo_Animal, idade, peso, nome_Popular, cont_Doenca, doente);
+                  auxD = (Animal_Domesticado) animais[cont];
+                  
+                  }
+                  System.out.println("Animal Domestico adicionado com sucesso!!!");               
+                  animais[cont] = auxD;
+                  cont++;      
+              
+                           
+                 }else{
+                     System.out.println("Limite de animais alcancado");                      
+                 }
+      
+                 ShowMenu();
+                 
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
+                 break;
+                  /*   
                   System.out.println("Digite o nome cientifico do animal:");
                   nome_Cientifico = sc.nextLine();
                   System.out.println("Digite a classe do animal:");
@@ -98,22 +136,7 @@ public class Main {
                   idade= Integer.parseInt(sc.nextLine());
                   System.out.println("\nDigite o apelido do animal:");
                   apelido= sc.nextLine();
-                  doente = false;                        
-                  animais[cont] = new Animal_Domesticado(apelido, nome_Cientifico, classe, codigo_Animal, idade, peso, nome_Popular, cont_Doenca, doente);
-                  auxD = (Animal_Domesticado) animais[cont];
-                  
-                  System.out.println("Animal Domestico adicionado com sucesso!!!");               
-                  animais[cont] = auxD;
-                  cont++;
-                 }else{
-                     System.out.println("Limite de animais alcancado");                      
-                 }
-      
-                 ShowMenu();
-                 
-                 opcao = Integer.parseInt(sc.nextLine());
-                   break;
-                 
+                   */                                  
              case 2:
                  if(cont < MAXANIMAIS){
                   System.out.println("\nDigite o nome cientifico do animal:");

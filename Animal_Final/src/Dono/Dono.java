@@ -132,13 +132,10 @@ public class Dono implements Pessoa{
     
     @Override
     public boolean equals(Object ob){
-        if(ob instanceof Dono && (((Dono)ob).nomeDono == null ? this.nomeDono == null : ((Dono)ob).nomeDono.equals(this.nomeDono)) && ((Dono)ob).getNumeroAnimais() == this.getNumeroAnimais()&& ((Dono)ob).getProfissao() == this.getProfissao() && (((Dono)ob).getQualidadeTratamento() == null ? this.getQualidadeTratamento() == null : ((Dono)ob).getQualidadeTratamento().equals(this.getQualidadeTratamento())))
-       return true; 
-        else
-       return false;     
+        return ob instanceof Dono && (((Dono)ob).nomeDono == null ? this.nomeDono == null : ((Dono)ob).nomeDono.equals(this.nomeDono)) && ((Dono)ob).getNumeroAnimais() == this.getNumeroAnimais()&& ((Dono)ob).getProfissao() == this.getProfissao() && (((Dono)ob).getQualidadeTratamento() == null ? this.getQualidadeTratamento() == null : ((Dono)ob).getQualidadeTratamento().equals(this.getQualidadeTratamento()));     
     }
 
-/*   @Override
+   @Override
     public int hashCode() {
         int hash = 7;
         hash = 89 * hash + Objects.hashCode(this.nomeDono);
@@ -146,6 +143,7 @@ public class Dono implements Pessoa{
         hash = 89 * hash + this.numeroAnimais;
         hash = 89 * hash + Objects.hashCode(this.profissao);
         return hash;
-    }*/
+    }
+    
 }
 

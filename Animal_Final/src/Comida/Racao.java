@@ -5,6 +5,8 @@
  */
 package Comida;
 
+import java.util.Objects;
+
 /**
  *
  * @author ABGerson
@@ -95,4 +97,19 @@ public class Racao implements Comida {
       }
      return s;
    }   
+   
+   @Override
+   public boolean equals(Object o){
+     return o instanceof Racao && ((Racao)o).calorias == this.calorias && (((Racao)o).nomeComida == null ? this.nomeComida == null : ((Racao)o).nomeComida.equals(this.nomeComida)) && ((Racao)o).mesesProducao == this.mesesProducao && ((Racao)o).qualidadeComida == this.qualidadeComida;
+   }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.nomeComida);
+        hash = 79 * hash + Float.floatToIntBits(this.calorias);
+        hash = 79 * hash + (this.qualidadeComida ? 1 : 0);
+        hash = 79 * hash + this.mesesProducao;
+        return hash;
+    }
 }

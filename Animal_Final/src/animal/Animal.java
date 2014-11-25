@@ -20,9 +20,10 @@ package animal;
 
 import Comida.Comida;
 import Comida.Racao;
-import animal.ComparableTo;
 import java.util.Scanner;
 import Dono.Movimento;
+import java.util.Random;
+import java.util.Objects;
 /**
  *
  * @author ABGerson
@@ -261,28 +262,31 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
     }
   }
   
+  @SuppressWarnings("empty-statement")
   public void Verificar_Se_Esta_Doente(Animal animal, int expectativa_Vida){
       int aux; 
       
-      Random random = new Random();
+      Random rand = new Random();
+      int aux_Random = rand.nextInt(3)+0;
+      
       
       aux = animal.Velhice(expectativa_Vida);
-      if(aux == 0 && animal.getContDoenca() >= 5){
+      if(aux == 0 && animal.getContDoenca()+aux_Random >= 5){
         System.out.println("Este animal  esta doente");  ;
       }
       
-      if(aux == 1 && animal.getContDoenca() >= 8){
+      if(aux == 1 && animal.getContDoenca()+aux_Random >= 8){
         System.out.println("Este animal  esta doente");  ;
       }
       
-      if(aux == 2 && animal.getContDoenca() >= 10){
+      if(aux == 2 && animal.getContDoenca()+aux_Random >= 10){
         System.out.println("Este animal  esta doente");  ;
       }
       
-      if(aux == 3 && animal.getContDoenca() >= 3){
+      if(aux == 3 && animal.getContDoenca()+aux_Random >= 3){
         System.out.println("Este animal  esta doente");  ;
       }
-      if(aux == 4 && animal.getContDoenca() >= 1){
+      if(aux == 4 && animal.getContDoenca()+aux_Random >= 2){
         System.out.println("Este animal  esta doente");  ;
       }
       
@@ -312,11 +316,26 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
   @Override 
   public boolean equals(Object o){
           int i = 0;
-      if(o instanceof Animal && ((Animal)o).getNomeCientifico() == this.getNomeCientifico() && ((Animal) o).getCodigoAnimal() == this.getCodigoAnimal() && ((Animal)o).getClasse() == this.getClasse() && ((Animal)o).idade == this.getIdade() && ((Animal)o).nomePopular == this.nomePopular && ((Animal)o).getContDoenca() == this.getContDoenca() && ((Animal)o).getPeso() == this.getPeso() )
-                return true;
-            else
-           return false;
+      return o instanceof Animal && (((Animal)o).getNomeCientifico() == null ? this.getNomeCientifico() == null : ((Animal)o).getNomeCientifico().equals(this.getNomeCientifico())) && (((Animal) o).getCodigoAnimal() == null ? this.getCodigoAnimal() == null : ((Animal) o).getCodigoAnimal().equals(this.getCodigoAnimal())) && (((Animal)o).getClasse() == null ? this.getClasse() == null : ((Animal)o).getClasse().equals(this.getClasse())) && ((Animal)o).idade == this.getIdade() && (((Animal)o).nomePopular == null ? this.nomePopular == null : ((Animal)o).nomePopular.equals(this.nomePopular)) && ((Animal)o).getContDoenca() == this.getContDoenca() && ((Animal)o).getPeso() == this.getPeso();
 
 
  }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.nomeCientifico);
+        hash = 97 * hash + Objects.hashCode(this.classe);
+        hash = 97 * hash + Objects.hashCode(this.codigoAnimal);
+        hash = 97 * hash + this.idade;
+        hash = 97 * hash + Objects.hashCode(this.perigoExtincao);
+        hash = 97 * hash + Float.floatToIntBits(this.peso);
+        hash = 97 * hash + Objects.hashCode(this.nomePopular);
+        hash = 97 * hash + this.contDoenca;
+        hash = 97 * hash + (this.Doente ? 1 : 0);
+        hash = 97 * hash + Objects.hashCode(this.sc);
+        return hash;
+    }
+  
+  
 }
