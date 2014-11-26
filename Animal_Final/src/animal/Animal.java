@@ -110,7 +110,7 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
 
     public void setCodigoAnimal(String codigoAnimal) {
         int cont;
-        if(!codigoAnimal.isEmpty() && codigoAnimal.length() == 12 && codigoAnimal.matches("[0-9]*") && codigoAnimal!= "000000000000"){                       
+        if(!codigoAnimal.isEmpty() && codigoAnimal.length() == 12 && codigoAnimal.matches("[0-9]*") && !"000000000000".equals(codigoAnimal)){                       
          this.codigoAnimal = codigoAnimal;
         }else{
          this.codigoAnimal = "Desconhecido";               
@@ -262,7 +262,7 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
     }
   }
   
-  @SuppressWarnings("empty-statement")
+ 
   public void Verificar_Se_Esta_Doente(Animal animal, int expectativa_Vida){
       int aux; 
       
@@ -309,9 +309,7 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
      s = s +"\n Animal esta doente. ";    
    }
       return s;
-   }
-      
-  
+   } 
   
   @Override 
   public boolean equals(Object o){
@@ -321,8 +319,8 @@ public abstract class Animal implements Movimento, ComparableTo<Animal>{
 
  }
 
-    @Override
-    public int hashCode() {
+  @Override
+  public int hashCode() {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.nomeCientifico);
         hash = 97 * hash + Objects.hashCode(this.classe);

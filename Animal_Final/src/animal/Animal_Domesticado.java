@@ -14,7 +14,6 @@
 package animal;
 
 import Dono.Dono;
-import animal.Animal;
 import java.util.Objects;
 
 
@@ -86,7 +85,7 @@ public class Animal_Domesticado extends Animal {
       s = s + "\n"  ;
       s = s + "\nHabitat: "+ this.Habitat();
       if(this.dono != null)
-      s = s +this.dono.toString();
+        s = s +this.dono.toString();
       return s;
     }
 

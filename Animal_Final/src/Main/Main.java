@@ -44,24 +44,9 @@ public class Main {
     
     public static final int MAXANIMAIS = 20;  
     
-    public static final void Welcome(){
-        
-    }
-    
     public static final void ShowMenu()
       {
           JOptionPane.showMessageDialog(null, "Bem vindo ao sistema de Registro de animais\n1 - Adicionar Animal Domesticado.\n2 - Adicionar Animal Selvagem.\n3 - Adicionar Dono.\n4 - Verificar se animal esta doente.\n5 - Alimentar Animal.\n6 - Verificar quão velho o animal está.\n 7 - Verificar o Risco de extinção do animal\n8 - Listar\n9- Adicionar_Brinquedo \n10 - Brincar com o animal\n0 - Sair.\nEscolha uma opcao  ");          
-         /* System.out.println("1 - Adicionar Animal Domesticado. ");   
-          System.out.println("2 - Adicionar Animal Selvagem. ");   
-          System.out.println("3 - Adicionar Dono. ");   
-          System.out.println("4 - Verificar se animal esta doente. ");   
-          System.out.println("5 - Alimentar Animal. ");   
-          System.out.println("6 - Verificar quão velho o animal está. ");             
-          System.out.println("7 - Verificar o Risco de extinção do animal");
-          System.out.println("8 - Listar");
-          System.out.println("0 - Sair.");   
-          System.out.println("\n");
-          System.out.println("Escolha uma opção:\n");*/
       }
 
    public static void cls(){       
@@ -92,7 +77,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);        
         //====================================================================
         
-        Welcome();
+    
         ShowMenu();
         System.out.println("\n");
         
