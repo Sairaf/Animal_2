@@ -5,6 +5,7 @@ package animal;
 import Brinquedo.Bola_Brinquedo;
 import Dono.Movimento;
 import java.util.Objects;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ABGerson
@@ -38,9 +39,9 @@ public class Cachorro extends Animal_Domesticado{
     
     public void Brincar(Movimento brinquedo){
       if(brinquedo instanceof Bola_Brinquedo)  {
-          System.out.println(this.getApelido() + " brinca com a bola.");            
+          JOptionPane.showMessageDialog(null,this.getApelido() + " brinca com a bola.");            
       }else{
-          System.out.println(this.getApelido() + " rejeita seu brinquedo");            
+         JOptionPane.showMessageDialog(null, this.getApelido() + " rejeita seu brinquedo");            
       }
     }
     

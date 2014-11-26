@@ -279,21 +279,24 @@ public class Main {
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 9:
-
+                 if(cont > 0){
                  marca = JOptionPane.showInputDialog("Digite a marca do brinquedo");
                  estado_Conservacao = JOptionPane.showInputDialog("Digite o estado de conservacao do brinquedo");
                  material_Feito = JOptionPane.showInputDialog("Digite o material que o brinquedo foi feito");
                  cor  = JOptionPane.showInputDialog("Digite a cor  do objeto (MAX 3)");
                  bola= new Bola_Brinquedo(marca, estado_Conservacao, material_Feito, cor);
                  flag = 1;
+                 }else{
+                   JOptionPane.showMessageDialog(null, "Nao existe animal registrado para poder ser criado um brinquedo");;
+                 }
                  ShowMenu();
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 10:
-                 if(cont > 0 || flag == 0){
+                 if(cont > 0 && flag == 1){
                   opcao = cont+2;
                   while(opcao > cont-1){
-                   opcao = Integer.parseInt(JOptionPane.showInputDialog(("Qual animal voce deseja Verificar o risco de extinção? ")));                   
+                   opcao = Integer.parseInt(JOptionPane.showInputDialog(("Qual animal voce deseja Brincar   ? ")));                   
                   }
                   if(animais[opcao] instanceof Cachorro){
                     ((Cachorro)animais[opcao]).Brincar(bola);
@@ -301,8 +304,10 @@ public class Main {
                     JOptionPane.showMessageDialog(null,"O animal nao gosta do brinquedo registrado");
                   }
                  }else{
-                   JOptionPane.showMessageDialog(null, "Nenhum animal foi registrado ou nao existe brinquedo registracdo");     
+                   JOptionPane.showMessageDialog(null, "Nenhum animal foi registrado ou nao existe brinquedo registrado");     
                  }
+                 ShowMenu();
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
              case 0:
 
