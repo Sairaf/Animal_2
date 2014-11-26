@@ -34,6 +34,7 @@ import animal.Animal_Domesticado;
 import animal.Animal_Selvagem;
 import Dono.Dono;
 import animal.Cachorro;
+import java.util.Collections;
 //import static Main.Main.Menu.ShowMenu;
 //import java.util.ArrayList;
 import java.util.Scanner;
@@ -46,7 +47,7 @@ public class Main {
     
     public static final void ShowMenu()
       {
-          JOptionPane.showMessageDialog(null, "Bem vindo ao sistema de Registro de animais\n1 - Adicionar Animal Domesticado.\n2 - Adicionar Animal Selvagem.\n3 - Adicionar Dono.\n4 - Verificar se animal esta doente.\n5 - Alimentar Animal.\n6 - Verificar quão velho o animal está.\n 7 - Verificar o Risco de extinção do animal\n8 - Listar\n9- Adicionar_Brinquedo \n10 - Brincar com o animal\n0 - Sair.\nEscolha uma opcao  ");          
+          JOptionPane.showMessageDialog(null, "Bem vindo ao sistema de Registro de animais\n1 - Adicionar Animal Domesticado.\n2 - Adicionar Animal Selvagem.\n3 - Adicionar Dono.\n4 - Verificar se animal esta doente.\n5 - Alimentar Animal.\n6 - Verificar quão velho o animal está.\n 7 - Verificar o Risco de extinção do animal\n8 - Listar\n9- Adicionar_Brinquedo \n10 - Brincar com o animal\n11 - Verificar se dois animais sao iguais\12Ordenar lista producao do dono\nn0 - Sair.\nEscolha uma opcao  ");          
       }
 
    public static void cls(){       
@@ -67,12 +68,12 @@ public class Main {
         //ArrayList <Animal> animais= new ArrayList<> ();
         
         //====================================================================
-        int cont = 0, flag = 0;        
+        int cont = 0, flag = 0, flag2 = 0,opcao,meses, opcao2;        
         String nome_Cientifico, classe, codigo_Animal, perigo_Extincao = "Desconhecido", nome_Popular, nome_Dono, qualidade_Tratamento = "Desc", apelido, nomeComida, raca, marca, estado_Conservacao, material_Feito, cor;
         int idade , cont_Doenca = 0, num_Animais, num_Donos, qualidade_Dono, expectativa_Vida,populacao ;
         float peso,calorias;
         boolean lider = false, doente, qualidade_Comida = true;
-        int opcao,meses;
+        
         
         Scanner sc = new Scanner(System.in);        
         //====================================================================
@@ -172,7 +173,7 @@ public class Main {
                   auxD = (Animal_Domesticado) animais[opcao];
                   auxD.setDono(dono);
                   animais[opcao] = auxD;
-                  
+                  flag2 = 1;
                   
                  }else{
                     JOptionPane.showMessageDialog(null, "Animais selvagens nao tem dono...Eu acho");   
@@ -298,6 +299,7 @@ public class Main {
                   while(opcao > cont-1){
                    opcao = Integer.parseInt(JOptionPane.showInputDialog(("Qual animal voce deseja Brincar   ? ")));                   
                   }
+                  Collections.sort(dono.getProfissao());
                   if(animais[opcao] instanceof Cachorro){
                     ((Cachorro)animais[opcao]).Brincar(bola);
                   }else{
@@ -309,8 +311,31 @@ public class Main {
                  ShowMenu();
                  opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));
                  break;
-             case 0:
-
+             case 11:
+                  if(cont > 0){
+                   opcao = cont+2;
+                   opcao2 = cont+3;
+                   while(opcao > cont-1 || opcao2 > cont-1){
+                    opcao = Integer.parseInt(JOptionPane.showInputDialog(("Escolha o primeiro animal a ser comparado? ")));                   
+                    opcao2 =Integer.parseInt(JOptionPane.showInputDialog(("Escolha o segundo animal a ser comparado? ")));                   
+                    }
+                   if(animais[opcao] == animais[opcao2]){
+                    JOptionPane.showMessageDialog(null, "Os animais sao iguais");            
+                   }else{
+                    JOptionPane.showMessageDialog(null, "Os animais nao sao iguais");  
+                   }
+                  }else{
+                  JOptionPane.showMessageDialog(null, "Nenhum animal foi registrado");          
+                  }
+                 ShowMenu();
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));                                 
+                 break;
+             case 12:
+                 Collections.sort(dono.getProfissao());
+                 ShowMenu();
+                 opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite a opcao desejada: "));                                 
+                 break;
+             case 0:                                  
                  System.exit(0);
              default:
                  JOptionPane.showMessageDialog(null,"Opcao invalida");                 

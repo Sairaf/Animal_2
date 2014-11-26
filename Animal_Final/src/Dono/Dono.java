@@ -22,7 +22,7 @@ public class Dono implements Pessoa{
     private String nomeDono;
     private String qualidadeTratamento;
     private int numeroAnimais;
-    private ArrayList <String> profissao = new ArrayList<>();
+    public ArrayList <String> profissao = new ArrayList<>();
     
     public Dono(String nomeDono, String qualidadeTratamento, int numeroAnimais, String profissao) {
         this.nomeDono = nomeDono;
